@@ -45,6 +45,9 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Recycle-bin repository with original-path metadata, restore, permanent delete, and empty
 - Text file repository with save, save-as, UTF-8 support, and large-file guard
 - Network/Cloud provider contracts and download task state model
+- Installed-app listing/launch/details repository with API-26 compatibility
+- Settings persistence model for theme, hidden files, autoplay, and folder covers
+- Tab state model with selection and close protection
 
 ## IN PROGRESS
 
@@ -55,6 +58,7 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Recycle-bin and archive management UI integration
 - Text editor UI and encoding controls
 - Concrete SMB/FTP/WebDAV/cloud/download providers
+- App manager, settings, and tabs UI integration
 - App/audio/archive category providers
 - Error message presentation and operation progress UI
 - Media opening from file-browser entries
@@ -76,8 +80,8 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - View on PC
 - Text editor UI and unsaved-change workflow
 - Application manager
-- Tabs/windows
-- Settings and complete preferences
+- Tabs/windows UI integration
+- Settings UI and complete preferences
 - Performance hardening and instrumentation coverage
 
 The project is not production-ready.
