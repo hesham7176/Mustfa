@@ -2,16 +2,17 @@
 
 ## Milestone 2: Home Dashboard + Core File Manager
 
-- [ ] Build Arabic-first home dashboard
-- [ ] Show real internal and removable storage cards
-- [ ] Add category shortcuts and real browser destinations
-- [ ] Add loading, empty, error, and search states
-- [ ] Add filesystem navigation and breadcrumbs
-- [ ] Add file actions and multi-selection
-- [ ] Add persisted sorting and nine view modes
-- [ ] Add history and refresh
-- [ ] Add SAF boundary for removable storage
-- [ ] Add focused tests and verify build gates
+- [x] Build Arabic-first home dashboard
+- [x] Show real internal and removable storage cards
+- [x] Add category shortcuts and real browser destinations
+- [x] Add loading, empty, error, and search states
+- [x] Add filesystem navigation and breadcrumbs
+- [x] Add file actions and multi-selection
+- [x] Add persisted sorting and nine view modes
+- [x] Add history and refresh
+- [x] Add SAF boundary for removable storage
+- [x] Add focused tests and verify build gates
+- [ ] Add SAF tree-picker UI and progress/cancellation surfaces
 
 ## Later milestones
 

@@ -9,6 +9,16 @@ import kotlin.coroutines.coroutineContext
 data class OperationProgress(val completedBytes: Long, val totalBytes: Long, val currentName: String)
 
 class FileOperations {
+    suspend fun rename(source: File, newName: String): Result<File> = withContext(Dispatchers.IO) {
+        runCatching {
+            require(newName.isNotBlank() && newName != "." && newName != "..") { "Invalid name" }
+            val target = File(source.parentFile, newName.trim())
+            require(!target.exists()) { "A file already exists" }
+            require(source.renameTo(target)) { "Unable to rename item" }
+            target
+        }
+    }
+
     suspend fun copy(source: File, destination: File, onProgress: (OperationProgress) -> Unit = {}): Result<File> = withContext(Dispatchers.IO) {
         runCatching {
             require(source.exists()) { "Source does not exist" }

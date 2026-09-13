@@ -1,6 +1,6 @@
 # Implementation Status
 
-Last verified milestone: Foundation
+Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 
 ## DONE
 
@@ -15,16 +15,35 @@ Last verified milestone: Foundation
 - GitHub Actions workflow for test, lint, and debug APK build
 - Foundation verification: unit tests, lint, and debug APK build
 
+## MILESTONE 2 DONE
+
+- Arabic-first Material 3 dashboard route
+- English and Arabic dashboard/browser strings
+- Real accessible internal and removable app-specific storage locations
+- Storage cards with real total/free/used calculations
+- Category cards for pictures, movies, music, downloads, and documents
+- Dashboard-to-browser navigation
+- Loading and empty browser states
+- Breadcrumb path navigation and visited-location history
+- Folder navigation, refresh, and search filtering
+- Name/type/size/modified sorting with ascending/descending persistence
+- All nine persisted view-mode choices with grid/list/details rendering
+- Long-press multi-selection
+- Create folder, rename, copy, move, delete, properties, and secure file sharing
+- SAF/DocumentFile gateway boundary for USB and removable providers
+- Milestone 2 verification: unit tests, lint, and debug APK build
+
 ## IN PROGRESS
 
-- Home dashboard and storage-aware navigation
-- Core file browser
+- SAF tree-picker UI and full DocumentFile copy/move integration
+- App/audio/archive category providers
+- Error message presentation and operation progress UI
+- Media opening from file-browser entries
 
 ## NOT STARTED
 
-- SAF and USB/removable storage browsing
-- Nine persisted view modes
-- Full file operation UI and multi-selection
+- Full USB/SAF browsing UI and provider permissions
+- Operation progress, cancellation, and conflict UI
 - Thumbnail engine
 - Image viewer
 - Media3 video player and gesture controls
