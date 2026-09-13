@@ -45,4 +45,8 @@
     <string name="empty_history">No visited locations yet</string>
     <string name="add_removable_storage">Add USB or SD storage</string>
     <string name="saf_unavailable">This storage is disconnected or permission was revoked</string>
+    <string name="open_storage_analyzer">Open storage analyzer</string>
+    <string name="storage_analyzer">Storage analyzer</string>
+    <string name="storage_categories">Categories</string>
+    <string name="largest_files">Largest files</string>
 </resources>

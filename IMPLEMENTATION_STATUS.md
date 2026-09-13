@@ -39,13 +39,15 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Media3 queue, resume, seek, speed, next/previous, and error state integration
 - MediaSessionService background playback boundary
 - SAF tree picker with persistable permissions and DocumentFile browsing
+- Background storage analyzer with category, largest-file, and largest-folder calculations
+- Storage analyzer dashboard screen with loading and error states
 
 ## IN PROGRESS
 
 - Video gesture arbitration and fullscreen/orientation controls
 - MediaSession controller wiring and notification behavior
 - Full DocumentFile copy/move/progress integration
-- Storage analyzer implementation and UI
+- Storage analyzer cache/progress optimization
 - App/audio/archive category providers
 - Error message presentation and operation progress UI
 - Media opening from file-browser entries

@@ -21,6 +21,7 @@
 - [x] Media3 video and audio playback UI foundation
 - [x] MediaSessionService background playback boundary
 - [x] SAF tree picker and DocumentFile browsing boundary
+- [x] Storage analyzer calculations and dashboard screen
 - [ ] Video gestures, fullscreen/orientation, and background audio controls
 - [ ] DocumentFile copy/move/progress parity
 - [ ] USB/SAF operations

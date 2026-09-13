@@ -57,6 +57,7 @@ fun DashboardScreen(viewModel: MustfaViewModel) {
     val locations by viewModel.locations.collectAsState()
     val safTreeUris by viewModel.safTreeUris.collectAsState()
     var selectedSafUri by remember { mutableStateOf<Uri?>(null) }
+    var analyzerRoot by remember { mutableStateOf<java.io.File?>(null) }
     val context = LocalContext.current
     val safPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
         uri ?: return@rememberLauncherForActivityResult
@@ -67,6 +68,10 @@ fun DashboardScreen(viewModel: MustfaViewModel) {
         SafBrowserScreen(selectedSafUri!!, onBack = { selectedSafUri = null })
         return
     }
+    if (analyzerRoot != null) {
+        StorageAnalyzerScreen(analyzerRoot!!, onBack = { analyzerRoot = null })
+        return
+    }
     Scaffold(topBar = {
         TopAppBar(
             title = { Column { Text(stringResource(R.string.home)); Text(stringResource(R.string.dashboard_subtitle), style = MaterialTheme.typography.labelSmall) } },
@@ -75,6 +80,7 @@ fun DashboardScreen(viewModel: MustfaViewModel) {
     }) { padding ->
         LazyColumn(contentPadding = PaddingValues(bottom = 24.dp), modifier = Modifier.padding(padding), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             item { Text(stringResource(R.string.storage_devices), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) }
+            locations.firstOrNull()?.let { location -> item { Card(onClick = { analyzerRoot = location.root }, modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) { Text(stringResource(R.string.open_storage_analyzer), modifier = Modifier.padding(16.dp), color = MaterialTheme.colorScheme.primary) } } }
             item { Card(onClick = { safPicker.launch(null) }, modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) { Text(stringResource(R.string.add_removable_storage), modifier = Modifier.padding(16.dp), color = MaterialTheme.colorScheme.primary) } }
             if (locations.isEmpty()) item { Text(stringResource(R.string.no_storage), modifier = Modifier.padding(horizontal = 16.dp)) }
             items(locations, key = { it.id }) { location -> StorageLocationCard(location) { viewModel.openLocation(location) } }

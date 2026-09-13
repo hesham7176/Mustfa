@@ -45,4 +45,8 @@
     <string name="empty_history">لا توجد مسارات تمت زيارتها بعد</string>
     <string name="add_removable_storage">إضافة تخزين USB أو بطاقة SD</string>
     <string name="saf_unavailable">وحدة التخزين غير متصلة أو تم سحب الإذن</string>
+    <string name="open_storage_analyzer">فتح محلل التخزين</string>
+    <string name="storage_analyzer">محلل التخزين</string>
+    <string name="storage_categories">التصنيفات</string>
+    <string name="largest_files">أكبر الملفات</string>
 </resources>
