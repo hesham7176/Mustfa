@@ -173,7 +173,7 @@ private fun Breadcrumbs(directory: File, viewModel: MustfaViewModel) {
 private fun FileGrid(entries: List<FileEntry>, mode: ViewMode, selected: Set<String>, viewModel: MustfaViewModel) {
     LazyVerticalGrid(columns = GridCells.Adaptive(if (mode == ViewMode.LARGE_GRID) 180.dp else if (mode == ViewMode.SMALL_GRID) 100.dp else 140.dp), contentPadding = PaddingValues(12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items(entries, key = { it.file.absolutePath }) { entry ->
-            FileCard(entry, selected.contains(entry.file.absolutePath), mode, onClick = { viewModel.open(entry) }, onLongClick = { viewModel.toggleSelection(entry) })
+            FileCard(entry, selected.contains(entry.file.absolutePath), mode, onClick = { if (entry.isDirectory) viewModel.open(entry) else viewModel.openMedia(entry) }, onLongClick = { viewModel.toggleSelection(entry) })
         }
     }
 }
@@ -198,15 +198,15 @@ private fun FileCard(entry: FileEntry, isSelected: Boolean, mode: ViewMode, onCl
 private fun FileList(entries: List<FileEntry>, mode: ViewMode, selected: Set<String>, viewModel: MustfaViewModel, onProperties: (FileEntry) -> Unit) {
     LazyColumn(contentPadding = PaddingValues(bottom = 24.dp)) {
         items(entries, key = { it.file.absolutePath }) { entry ->
-            FileListRow(entry, mode, selected.contains(entry.file.absolutePath), viewModel::open, viewModel::toggleSelection, onProperties)
+            FileListRow(entry, mode, selected.contains(entry.file.absolutePath), viewModel::open, viewModel::openMedia, viewModel::toggleSelection, onProperties)
         }
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun FileListRow(entry: FileEntry, mode: ViewMode, selected: Boolean, onOpen: (FileEntry) -> Unit, onLongClick: (FileEntry) -> Unit, onProperties: (FileEntry) -> Unit) {
-    Row(Modifier.fillMaxWidth().combinedClickable(onClick = { if (entry.isDirectory) onOpen(entry) else onProperties(entry) }, onLongClick = { onLongClick(entry) }).padding(horizontal = 16.dp, vertical = if (mode.compact) 8.dp else 14.dp), verticalAlignment = Alignment.CenterVertically) {
+private fun FileListRow(entry: FileEntry, mode: ViewMode, selected: Boolean, onOpen: (FileEntry) -> Unit, onPlay: (FileEntry) -> Unit, onLongClick: (FileEntry) -> Unit, onProperties: (FileEntry) -> Unit) {
+    Row(Modifier.fillMaxWidth().combinedClickable(onClick = { if (entry.isDirectory) onOpen(entry) else onPlay(entry) }, onLongClick = { onLongClick(entry) }).padding(horizontal = 16.dp, vertical = if (mode.compact) 8.dp else 14.dp), verticalAlignment = Alignment.CenterVertically) {
         Icon(fileIcon(entry), contentDescription = null, modifier = Modifier.size(if (mode.compact) 30.dp else 40.dp), tint = MaterialTheme.colorScheme.primary)
         Spacer(Modifier.width(14.dp))
         Column(Modifier.weight(1f)) {

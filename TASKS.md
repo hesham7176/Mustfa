@@ -18,7 +18,8 @@
 
 - [x] Folder cover and thumbnail engine hardening
 - [ ] Image viewer
-- [ ] Media3 video and audio playback UI
+- [x] Media3 video and audio playback UI foundation
+- [ ] Video gestures, fullscreen/orientation, and background audio controls
 - [ ] USB/SAF operations
 - [ ] Storage analyzer and search indexing
 - [ ] Recycle bin and archives

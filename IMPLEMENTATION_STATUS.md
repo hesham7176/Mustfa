@@ -35,11 +35,13 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Thumbnail engine with folder/image/video/audio resolution and disk/memory cache
 - Thumbnail grid integration
 - Thumbnail verification: unit tests, lint, and debug APK build
+- Media3 PlayerView integration for local video/audio files
+- Media3 queue, resume, seek, speed, next/previous, and error state integration
 
 ## IN PROGRESS
 
-- Media3 playback engine foundation: queue, resume, seek, speed, and error state
-- Media3 player screen and file-open integration
+- Video gesture arbitration and fullscreen/orientation controls
+- Background audio session, notification, and lock-screen controls
 - SAF tree-picker UI and full DocumentFile copy/move integration
 - App/audio/archive category providers
 - Error message presentation and operation progress UI
@@ -51,8 +53,8 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Operation progress, cancellation, and conflict UI
 - Thumbnail engine
 - Image viewer
-- Media3 video player and gesture controls
-- Audio player, background playback, and media notification
+- Robust video gesture controls and fullscreen/orientation
+- Background audio session, notification, and lock-screen controls
 - Storage analyzer
 - Recycle bin
 - ZIP/archive manager

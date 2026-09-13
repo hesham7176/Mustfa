@@ -29,6 +29,7 @@ data class PlaybackState(
 
 class MediaEngine(context: Context, private val positions: PlaybackPositionStore = PlaybackPositionStore(context)) {
     private val player = ExoPlayer.Builder(context).build()
+    val exoPlayer: ExoPlayer get() = player
     private val _state = MutableStateFlow(PlaybackState())
     val state: StateFlow<PlaybackState> = _state.asStateFlow()
 

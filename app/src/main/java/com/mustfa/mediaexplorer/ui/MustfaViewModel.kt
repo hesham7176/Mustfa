@@ -13,13 +13,16 @@ import com.mustfa.mediaexplorer.data.SortDirection
 import com.mustfa.mediaexplorer.data.StorageSummary
 import com.mustfa.mediaexplorer.data.StorageLocation
 import com.mustfa.mediaexplorer.data.ViewMode
+import com.mustfa.mediaexplorer.media.MediaEngine
+import com.mustfa.mediaexplorer.media.MediaSelection
+import android.net.Uri
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.io.File
 
-class MustfaViewModel(private val repository: FileRepository) : ViewModel() {
+class MustfaViewModel(private val repository: FileRepository, private val mediaEngine: MediaEngine) : ViewModel() {
     private val fileOperations = FileOperations()
     private val initialLocation = repository.locations().firstOrNull()
     private val _locations = MutableStateFlow(repository.locations())
@@ -50,6 +53,8 @@ class MustfaViewModel(private val repository: FileRepository) : ViewModel() {
     val filter: StateFlow<FileFilter> = _filter.asStateFlow()
     private val _message = MutableStateFlow<String?>(null)
     val message: StateFlow<String?> = _message.asStateFlow()
+    private val _playerVisible = MutableStateFlow(false)
+    val playerVisible: StateFlow<Boolean> = _playerVisible.asStateFlow()
 
     init { initialLocation?.let { load(it.root, addHistory = false) } }
 
@@ -74,6 +79,15 @@ class MustfaViewModel(private val repository: FileRepository) : ViewModel() {
     }
 
     fun open(entry: FileEntry) { if (entry.isDirectory) load(entry.file) }
+    fun openMedia(entry: FileEntry) {
+        if (!MediaSelection.supported(entry.file)) { _message.value = "This file type is not supported"; return }
+        val queue = _entries.value.filter { MediaSelection.supported(it.file) }.map { Uri.fromFile(it.file) }
+        val index = queue.indexOf(Uri.fromFile(entry.file)).coerceAtLeast(0)
+        mediaEngine.setQueue(queue, index)
+        _playerVisible.value = true
+        mediaEngine.play()
+    }
+    fun closePlayer() { mediaEngine.pause(); _playerVisible.value = false }
     fun back() { _directory.value.parentFile?.let(::load) }
     fun setSort(field: SortField) { _sort.value = field; repository.saveSort(field, _sortDirection.value); _entries.value = sortEntries(_entries.value) }
     fun toggleSortDirection() { _sortDirection.value = if (_sortDirection.value == SortDirection.ASCENDING) SortDirection.DESCENDING else SortDirection.ASCENDING; repository.saveSort(_sort.value, _sortDirection.value); _entries.value = sortEntries(_entries.value) }
@@ -145,9 +159,9 @@ class MustfaViewModel(private val repository: FileRepository) : ViewModel() {
     }
 
     companion object {
-        fun factory(repository: FileRepository) = object : ViewModelProvider.Factory {
+        fun factory(repository: FileRepository, mediaEngine: MediaEngine) = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T = MustfaViewModel(repository) as T
+            override fun <T : ViewModel> create(modelClass: Class<T>): T = MustfaViewModel(repository, mediaEngine) as T
         }
     }
 }

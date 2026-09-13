@@ -13,9 +13,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val repository = (application as MustfaApplication).fileRepository
+        val app = application as MustfaApplication
         setContent {
-            MustfaTheme { MustfaApp(viewModel(factory = MustfaViewModel.factory(repository))) }
+            MustfaTheme { MustfaApp(viewModel(factory = MustfaViewModel.factory(app.fileRepository, app.mediaEngine)), app.mediaEngine) }
         }
     }
 }
