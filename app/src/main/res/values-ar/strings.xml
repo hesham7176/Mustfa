@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">مصطفى</string>
+    <string name="home">الرئيسية</string>
+    <string name="files">الملفات</string>
+    <string name="storage">التخزين الداخلي</string>
+    <string name="storage_summary">تصفح الملفات والوسائط ووحدات التخزين القابلة للإزالة</string>
+    <string name="photos">الصور</string>
+    <string name="videos">الفيديوهات</string>
+    <string name="music">الموسيقى</string>
+    <string name="audio">الصوتيات</string>
+    <string name="documents">المستندات</string>
+    <string name="downloads">التنزيلات</string>
+    <string name="open">فتح</string>
+    <string name="new_folder">مجلد جديد</string>
+    <string name="folder_name">اسم المجلد</string>
+    <string name="cancel">إلغاء</string>
+    <string name="create">إنشاء</string>
+    <string name="sort">فرز</string>
+    <string name="search">البحث في الملفات</string>
+    <string name="empty_folder">هذا المجلد فارغ</string>
+</resources>
