@@ -23,6 +23,7 @@
 - [x] SAF tree picker and DocumentFile browsing boundary
 - [x] Storage analyzer calculations and dashboard screen
 - [x] ZIP service and recycle-bin data services
+- [x] Text repository and network/cloud/download contracts
 - [ ] Archive/recycle-bin UI integration
 - [ ] Video gestures, fullscreen/orientation, and background audio controls
 - [ ] DocumentFile copy/move/progress parity

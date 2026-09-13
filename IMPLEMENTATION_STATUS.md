@@ -43,6 +43,8 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Storage analyzer dashboard screen with loading and error states
 - ZIP create/list/extract service with traversal protection
 - Recycle-bin repository with original-path metadata, restore, permanent delete, and empty
+- Text file repository with save, save-as, UTF-8 support, and large-file guard
+- Network/Cloud provider contracts and download task state model
 
 ## IN PROGRESS
 
@@ -51,6 +53,8 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Full DocumentFile copy/move/progress integration
 - Storage analyzer cache/progress optimization
 - Recycle-bin and archive management UI integration
+- Text editor UI and encoding controls
+- Concrete SMB/FTP/WebDAV/cloud/download providers
 - App/audio/archive category providers
 - Error message presentation and operation progress UI
 - Media opening from file-browser entries
@@ -67,10 +71,10 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Recycle-bin UI and delete-to-bin browser integration
 - ZIP/archive browser and editor UI
 - SMB, FTP, and WebDAV
-- Download manager
-- Cloud providers
+- Download manager execution backend
+- Cloud provider implementations
 - View on PC
-- Text editor
+- Text editor UI and unsaved-change workflow
 - Application manager
 - Tabs/windows
 - Settings and complete preferences
