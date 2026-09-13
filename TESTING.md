@@ -30,6 +30,12 @@ Media3 player UI verification:
 - `./gradlew lintDebug --no-daemon --max-workers=1 --offline` passed
 - `./gradlew assembleDebug --no-daemon --max-workers=1 --offline` passed
 
+Background playback boundary verification:
+
+- `./gradlew testDebugUnitTest` passed
+- `./gradlew lintDebug --no-daemon --max-workers=1 --offline` passed
+- `./gradlew assembleDebug --no-daemon --max-workers=1 --offline` passed
+
 ## Milestone rule
 
 After each major feature slice, run unit tests, lint, and debug APK assembly. Add behavior-scoped tests before marking a requirement DONE.
