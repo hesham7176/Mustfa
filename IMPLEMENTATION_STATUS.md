@@ -38,19 +38,21 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Media3 PlayerView integration for local video/audio files
 - Media3 queue, resume, seek, speed, next/previous, and error state integration
 - MediaSessionService background playback boundary
+- SAF tree picker with persistable permissions and DocumentFile browsing
 
 ## IN PROGRESS
 
 - Video gesture arbitration and fullscreen/orientation controls
 - MediaSession controller wiring and notification behavior
-- SAF tree-picker UI and full DocumentFile copy/move integration
+- Full DocumentFile copy/move/progress integration
+- Storage analyzer implementation and UI
 - App/audio/archive category providers
 - Error message presentation and operation progress UI
 - Media opening from file-browser entries
 
 ## NOT STARTED
 
-- Full USB/SAF browsing UI and provider permissions
+- DocumentFile write-operation parity with local filesystem
 - Operation progress, cancellation, and conflict UI
 - Thumbnail engine
 - Image viewer

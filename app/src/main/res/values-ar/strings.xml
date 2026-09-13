@@ -43,4 +43,6 @@
     <string name="invalid_destination">يجب أن تكون الوجهة مجلدًا موجودًا</string>
     <string name="filter">تصفية</string>
     <string name="empty_history">لا توجد مسارات تمت زيارتها بعد</string>
+    <string name="add_removable_storage">إضافة تخزين USB أو بطاقة SD</string>
+    <string name="saf_unavailable">وحدة التخزين غير متصلة أو تم سحب الإذن</string>
 </resources>

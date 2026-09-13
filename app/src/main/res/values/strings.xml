@@ -43,4 +43,6 @@
     <string name="invalid_destination">Destination must be an existing folder</string>
     <string name="filter">Filter</string>
     <string name="empty_history">No visited locations yet</string>
+    <string name="add_removable_storage">Add USB or SD storage</string>
+    <string name="saf_unavailable">This storage is disconnected or permission was revoked</string>
 </resources>

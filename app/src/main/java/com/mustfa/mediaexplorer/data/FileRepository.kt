@@ -2,12 +2,16 @@ package com.mustfa.mediaexplorer.data
 
 import android.content.Context
 import android.os.Environment
+import androidx.documentfile.provider.DocumentFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 
 class FileRepository(private val context: Context) {
     private val preferences = context.getSharedPreferences("file_browser_preferences", Context.MODE_PRIVATE)
+
+    fun safTreeUris(): List<String> = preferences.getStringSet("saf_tree_uris", emptySet()).orEmpty().toList()
+    fun saveSafTreeUri(uri: String) { preferences.edit().putStringSet("saf_tree_uris", (safTreeUris() + uri).toSet()).apply() }
 
     fun savedViewMode(): ViewMode = runCatching { ViewMode.valueOf(preferences.getString("view_mode", null).orEmpty()) }.getOrDefault(ViewMode.MEDIUM_LIST)
     fun saveViewMode(mode: ViewMode) { preferences.edit().putString("view_mode", mode.name).apply() }

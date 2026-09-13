@@ -27,6 +27,8 @@ class MustfaViewModel(private val repository: FileRepository, private val mediaE
     private val initialLocation = repository.locations().firstOrNull()
     private val _locations = MutableStateFlow(repository.locations())
     val locations: StateFlow<List<StorageLocation>> = _locations.asStateFlow()
+    private val _safTreeUris = MutableStateFlow(repository.safTreeUris())
+    val safTreeUris: StateFlow<List<String>> = _safTreeUris.asStateFlow()
     private val _isHome = MutableStateFlow(true)
     val isHome: StateFlow<Boolean> = _isHome.asStateFlow()
     private val _directory = MutableStateFlow(initialLocation?.root ?: File("/"))
@@ -59,6 +61,7 @@ class MustfaViewModel(private val repository: FileRepository, private val mediaE
     init { initialLocation?.let { load(it.root, addHistory = false) } }
 
     fun categories(location: StorageLocation): List<CategoryLocation> = repository.categories(location)
+    fun rememberSafTree(uri: String) { repository.saveSafTreeUri(uri); _safTreeUris.value = repository.safTreeUris() }
     fun navigateHome() { _isHome.value = true; _selectedPaths.value = emptySet() }
     fun openLocation(location: StorageLocation) { _isHome.value = false; load(location.root) }
     fun openCategory(category: CategoryLocation) { _isHome.value = false; load(category.directory) }
