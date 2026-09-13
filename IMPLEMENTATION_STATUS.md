@@ -41,6 +41,8 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - SAF tree picker with persistable permissions and DocumentFile browsing
 - Background storage analyzer with category, largest-file, and largest-folder calculations
 - Storage analyzer dashboard screen with loading and error states
+- ZIP create/list/extract service with traversal protection
+- Recycle-bin repository with original-path metadata, restore, permanent delete, and empty
 
 ## IN PROGRESS
 
@@ -48,6 +50,7 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - MediaSession controller wiring and notification behavior
 - Full DocumentFile copy/move/progress integration
 - Storage analyzer cache/progress optimization
+- Recycle-bin and archive management UI integration
 - App/audio/archive category providers
 - Error message presentation and operation progress UI
 - Media opening from file-browser entries
@@ -61,8 +64,8 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Robust video gesture controls and fullscreen/orientation
 - Background audio notification and lock-screen behavior verification
 - Storage analyzer
-- Recycle bin
-- ZIP/archive manager
+- Recycle-bin UI and delete-to-bin browser integration
+- ZIP/archive browser and editor UI
 - SMB, FTP, and WebDAV
 - Download manager
 - Cloud providers

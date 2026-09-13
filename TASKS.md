@@ -22,6 +22,8 @@
 - [x] MediaSessionService background playback boundary
 - [x] SAF tree picker and DocumentFile browsing boundary
 - [x] Storage analyzer calculations and dashboard screen
+- [x] ZIP service and recycle-bin data services
+- [ ] Archive/recycle-bin UI integration
 - [ ] Video gestures, fullscreen/orientation, and background audio controls
 - [ ] DocumentFile copy/move/progress parity
 - [ ] USB/SAF operations
