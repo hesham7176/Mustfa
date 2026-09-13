@@ -32,9 +32,14 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Create folder, rename, copy, move, delete, properties, and secure file sharing
 - SAF/DocumentFile gateway boundary for USB and removable providers
 - Milestone 2 verification: unit tests, lint, and debug APK build
+- Thumbnail engine with folder/image/video/audio resolution and disk/memory cache
+- Thumbnail grid integration
+- Thumbnail verification: unit tests, lint, and debug APK build
 
 ## IN PROGRESS
 
+- Media3 playback engine foundation: queue, resume, seek, speed, and error state
+- Media3 player screen and file-open integration
 - SAF tree-picker UI and full DocumentFile copy/move integration
 - App/audio/archive category providers
 - Error message presentation and operation progress UI

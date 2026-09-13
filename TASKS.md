@@ -16,9 +16,9 @@
 
 ## Later milestones
 
-- [ ] Folder cover and thumbnail engine hardening
+- [x] Folder cover and thumbnail engine hardening
 - [ ] Image viewer
-- [ ] Media3 video and audio playback
+- [ ] Media3 video and audio playback UI
 - [ ] USB/SAF operations
 - [ ] Storage analyzer and search indexing
 - [ ] Recycle bin and archives

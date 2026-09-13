@@ -53,6 +53,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -72,6 +73,7 @@ import com.mustfa.mediaexplorer.data.FileFilter
 import com.mustfa.mediaexplorer.data.SortField
 import com.mustfa.mediaexplorer.data.ViewMode
 import com.mustfa.mediaexplorer.domain.FolderCoverResolver
+import com.mustfa.mediaexplorer.thumbnails.ThumbnailEngine
 import java.io.File
 import java.text.DateFormat
 import java.util.Date
@@ -179,10 +181,12 @@ private fun FileGrid(entries: List<FileEntry>, mode: ViewMode, selected: Set<Str
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun FileCard(entry: FileEntry, isSelected: Boolean, mode: ViewMode, onClick: () -> Unit, onLongClick: () -> Unit) {
-    val cover = remember(entry.file.absolutePath) { if (entry.isDirectory) FolderCoverResolver().resolve(entry.file) else null }
+    val context = androidx.compose.ui.platform.LocalContext.current
+    var thumbnail by remember(entry.file.absolutePath) { mutableStateOf<com.mustfa.mediaexplorer.thumbnails.ThumbnailResult>(com.mustfa.mediaexplorer.thumbnails.ThumbnailResult.None) }
+    LaunchedEffect(entry.file.absolutePath, entry.modified) { thumbnail = ThumbnailEngine(context).resolve(entry) }
     Card(modifier = Modifier.combinedClickable(onClick = onClick, onLongClick = onLongClick), shape = RoundedCornerShape(10.dp)) {
         Column(Modifier.padding(if (mode == ViewMode.SMALL_GRID) 8.dp else 12.dp)) {
-            if (cover != null) AsyncImage(model = cover, contentDescription = entry.name, modifier = Modifier.fillMaxWidth().height(if (mode == ViewMode.LARGE_GRID) 130.dp else 90.dp).clip(RoundedCornerShape(8.dp)), contentScale = ContentScale.Crop)
+            if (thumbnail is com.mustfa.mediaexplorer.thumbnails.ThumbnailResult.Image) AsyncImage(model = (thumbnail as com.mustfa.mediaexplorer.thumbnails.ThumbnailResult.Image).file, contentDescription = entry.name, modifier = Modifier.fillMaxWidth().height(if (mode == ViewMode.LARGE_GRID) 130.dp else 90.dp).clip(RoundedCornerShape(8.dp)), contentScale = ContentScale.Crop)
             else Icon(fileIcon(entry), contentDescription = null, modifier = Modifier.size(if (mode == ViewMode.SMALL_GRID) 36.dp else 52.dp), tint = MaterialTheme.colorScheme.primary)
             Text(entry.name, maxLines = 2, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(top = 8.dp))
             if (mode != ViewMode.SMALL_GRID) Text(if (entry.isDirectory) "Folder" else formatBytes(entry.size), style = MaterialTheme.typography.labelSmall)
