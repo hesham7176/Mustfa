@@ -48,6 +48,7 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Installed-app listing/launch/details repository with API-26 compatibility
 - Settings persistence model for theme, hidden files, autoplay, and folder covers
 - Tab state model with selection and close protection
+- Video gesture arbitration with direction lock, edge controls, seek, and double-tap decisions
 
 ## IN PROGRESS
 
@@ -69,7 +70,7 @@ Last verified milestone: Milestone 2 - Home Dashboard + Core File Manager
 - Operation progress, cancellation, and conflict UI
 - Thumbnail engine
 - Image viewer
-- Robust video gesture controls and fullscreen/orientation
+- Fullscreen/orientation UI and Android brightness/volume application
 - Background audio notification and lock-screen behavior verification
 - Storage analyzer
 - Recycle-bin UI and delete-to-bin browser integration

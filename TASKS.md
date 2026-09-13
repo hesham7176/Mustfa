@@ -25,6 +25,7 @@
 - [x] ZIP service and recycle-bin data services
 - [x] Text repository and network/cloud/download contracts
 - [x] App manager/settings/tab state foundations
+- [x] Video gesture arbitration decision layer
 - [ ] Archive/recycle-bin UI integration
 - [ ] Video gestures, fullscreen/orientation, and background audio controls
 - [ ] DocumentFile copy/move/progress parity
